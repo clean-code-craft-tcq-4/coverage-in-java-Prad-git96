@@ -6,9 +6,12 @@ public class EmailNotificationSender implements Notifier{
 
 	@Override
 	public void sendNotification(BreachType breachType) {
+		if(!breachType.equals(BreachType.NORMAL)) {
 		 String recepient = "a.b@c.com";
      	sendEmail(recepient, breachType.getBreachType());
+		}
 	}
+	
 	
 	public void sendEmail(String recepient,String breachType) {
         System.out.printf("To: %s\n", recepient);
